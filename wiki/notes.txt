@@ -1,1 +1,16 @@
 === Notes ===
+Contexts
+    * Scalar Context - Understood as single object
+    * List Context - Understood as multiple objects
+    * Boolean Context - Understood as true or false
+        - Interprets scalars as true or false
+        - Interprets lists as scalars as in
+        # while (@files)
+        # {
+        #   my $file = shift @files;
+        #   etc
+        # }
+    * Void Context - Not really understood as returning a value
+    *
+    *
+    * Interpolative Context - Context inside double quotes that Interprets \n and such
