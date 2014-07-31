@@ -11,3 +11,6 @@ pop @whiteBoardFeelings;
 print "@whiteBoardFeelings\n";
 unshift @whiteBoardFeelings, "Disgruntled";
 print "@whiteBoardFeelings\n";
+
+@whiteBoardFeelings = sort @whiteBoardFeelings;
+print "@whiteBoardFeelings\n";
