@@ -11,6 +11,34 @@ Contexts
         #   etc
         # }
     * Void Context - Not really understood as returning a value
+    *  - for nonfunctional functions / functions that only have side-effects
     *
     *
     * Interpolative Context - Context inside double quotes that Interprets \n and such
+ 
+
+0 but true and 0E0 are both numerically 0 but as strings they are true
+
+qw/bob bill tim/ will make a list = ("bob", "bill", "tim")
+
+use Modern::Perl; "Imports the basic necessities of PERL....?"
+use Data::Dumper; "Gives us a way to access the contents of empty arrays."
+
+say Dumper \@someArray; (??)
+
+until is the opposite of while - performs until true versus while which performs until false
+
+grep {block} @array;
+    grep requires $_
+    returns array of items in array that were true for the block
+
+grep { length($_) > 4 } @someArrayOString
+
+sort {block} @array;
+    $a and b;
+
+map {block} @array;
+    map returns the value of the block for the item in the array
+
+map and grep and such are shortcuts
+
