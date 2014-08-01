@@ -2,22 +2,34 @@
 use strict;
 use warnings;
 use diagnostics -verbose;
+use bigint;
 use 5.18.2;
 
 my $toFactor = <STDIN>;
 chomp( $toFactor );
-
-my $startCount = 2;
 
 my @primeFactors;
 
 if (isprime($toFactor))
 {
     print "$toFactor is prime!!!11!!1\n";
+    if (ispalindrome($toFactor))
+    {
+      print "This one is for Greg!\n";
+    }
 }
 else
 {
-    primefactor($toFactor, $startCount);
+    primefactor($toFactor, 2);
+}
+
+sub ispalindrome 
+{
+  my $number = pop(@_);
+
+  return 1 if ($number eq (scalar reverse $number));
+
+  return 0;
 }
 
 sub isprime {
@@ -27,7 +39,7 @@ sub isprime {
   return 1 if ($number == 2);
 
 
-  while ($count < $number)
+  until ($count > sqrt($number))
     {   
       if ($number%$count != 0 and ($number - 1) == $count)
       {
