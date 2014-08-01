@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
+use diagnostics -verbose;
 use 5.18.2;
 
 my $toFactor = <STDIN>;
@@ -20,29 +21,26 @@ else
 }
 
 sub isprime {
-    my $number = pop(@_);
-    my $count = 2;
-    if ($number == 2)
-    {
-       return 1;
-    }
-    else
-    {
-        while ($count < $number)
-        {   
-            if ($number%$count != 0 and ($number - 1) == $count)
-            {
-                return 1;
-            }
-            elsif ($number%$count != 0 and ($number - 1) > $count)
-            {
-                ++$count;
-            }
-            elsif ($number%$count == 0)
-            {
-                return 0;
-            }
-        }
+  my $number  = pop(@_);                  #Scalar which stores the number you are checking 
+  my $count   = 2                         #goes from 2->$number, to check if divisble my count
+
+  return 1 if ($number == 2);
+
+
+  while ($count < $number)
+    {   
+      if ($number%$count != 0 and ($number - 1) == $count)
+      {
+        return 1;
+      }
+      elsif ($number%$count != 0 and ($number - 1) > $count)
+      {
+        $count = $count + 1;
+      }
+      elsif ($number%$count == 0)
+      {
+        return 0;
+      }
     }
 }
 
