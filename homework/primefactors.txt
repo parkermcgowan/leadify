@@ -1,0 +1,73 @@
+Boilerplate
+
+
+
+bigint for large numbers
+
+
+Recieve user-submitted value
+remove newline from user-submitted value
+
+initialize the array to hold the primefactors
+
+early return type of thing if number is prime
+with palindrometest for greg
+
+
+
+
+
+
+code to actually run the primefactors function
+
+
+
+
+definition of isplaindrome function
+
+get number as argument
+
+return true if string number equals it's reverse
+
+otherwise return false
+
+
+definition of isprime function
+  sets number variable to the argument
+  initializes the count as 2
+
+  early return for edgecase of 2
+
+  work while the count is less than or equal to the sqrt of the number
+
+    if number is not divisible by count
+
+    increment count
+
+    if the number is divisble by count
+
+    return false - not prime
+
+
+  if it goes through that loop without returning false, return true - it is prime
+
+
+Function definition of primefactor
+  set count to the second argument
+  set number to the first argument
+
+  if the number is prime
+
+  add the number to the list of primefactos
+  and print the list because if the number is prime the list is finished
+
+  if the number is not prime
+
+  check if the number is divisible by the count
+
+  if so push the count onto the list of primefactors
+  and then recursively call primefactor with the number now being the number divided by the count, and the count staying the same
+
+  if the number is not divisble by the count
+
+  call primefactor again with the same number but an incremented count.

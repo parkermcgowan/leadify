@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 use diagnostics -verbose;
-use bigint;
+#use bigint;
 use 5.18.2;
 
 my $toFactor = <STDIN>;
@@ -38,14 +38,10 @@ sub isprime {
 
   return 1 if ($number == 2);
 
-
-  until ($count > sqrt($number))
+  #until ($count > sqrt($number))
+  while (sqrt($number) >= $count)
     {   
-      if ($number%$count != 0 and ($number - 1) == $count)
-      {
-        return 1;
-      }
-      elsif ($number%$count != 0 and ($number - 1) > $count)
+      if ($number%$count != 0)
       {
         $count = $count + 1;
       }
@@ -54,6 +50,7 @@ sub isprime {
         return 0;
       }
     }
+    return 1;
 }
 
 sub primefactor {
