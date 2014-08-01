@@ -55,17 +55,14 @@ sub primefactor {
     }
     else
     {
-        #    while ($count < $number)
-        #{
-            if ($number%$count == 0)
-            {
-                push (@primeFactors, $count);
-                primefactor(($number/$count), ($count + 1));
-            }
-            else
-            {
-                primefactor($number, ($count + 1));
-            }
-            # }
+        if ($number%$count == 0)
+        {
+            push (@primeFactors, $count);
+            primefactor(($number/$count), $count);
+        }
+        else
+        {
+            primefactor($number, ($count + 1));
+        }
     }
 }
