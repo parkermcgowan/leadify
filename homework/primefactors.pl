@@ -22,7 +22,7 @@ else
 
 sub isprime {
   my $number  = pop(@_);                  #Scalar which stores the number you are checking 
-  my $count   = 2                         #goes from 2->$number, to check if divisble my count
+  my $count   = 2;                         #goes from 2->$number, to check if divisble my count
 
   return 1 if ($number == 2);
 
