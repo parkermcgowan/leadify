@@ -1,14 +1,18 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
-use diagnostics -verbose;
-#use bigint;
+use bigint;
+use List::Util 'first';
 use 5.18.2;
 
 my $toFactor = <STDIN>;
 chomp( $toFactor );
 
 my @primeFactors;
+
+my @primes;
+
+eratosthenes($toFactor);
 
 if (isprime($toFactor))
 {
@@ -32,24 +36,19 @@ sub ispalindrome
   return 0;
 }
 
+sub eratosthenes { #not functional
+  my $number = pop(@_);
+  @primes = (2..$number);
+  foreach my $sieve (@primes)
+  {
+    @primes = grep { $_%$sieve != 0 or $_ == $sieve } @primes;
+  }
+}
+
 sub isprime {
-  my $number  = pop(@_);                  #Scalar which stores the number you are checking 
-  my $count   = 2;                         #goes from 2->$number, to check if divisble my count
-
-  return 1 if ($number == 2);
-
-  while (sqrt($number) >= $count)
-    {   
-      if ($number%$count != 0)
-      {
-        $count = $count + 1;
-      }
-      elsif ($number%$count == 0)
-      {
-        return 0;
-      }
-    }
-    return 1;
+  my $number = pop(@_);
+  return 1 if (first { $_ == $number } @primes);
+  return 0;
 }
 
 sub primefactor {
